@@ -74,7 +74,7 @@ async def send_video_with_chat_id(client, sender, path, caption, duration, hi, w
             progress=progress_for_pyrogram,
             progress_args=(
                 client,
-                '**__Uploading: [Team SPY](https://t.me/dev_gagan)__**\n ',
+                '**__Uploading: [MAHI®](https://t.me/mr_mahiji)__**\n ',
                 upm,
                 time.time()
             )
@@ -97,7 +97,7 @@ async def send_document_with_chat_id(client, sender, path, caption, thumb_path, 
             progress=progress_for_pyrogram,
             progress_args=(
                 client,
-                '**__Uploading:__**\n**__Bot made by [Team SPY](https://t.me/dev_gagan)__**',
+                '**__Uploading:__**\n**__Bot made by [MAHI®](https://t.me/MR_MAHIJI)__**',
                 upm,
                 time.time()
             )
@@ -215,7 +215,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                 progress=progress_for_pyrogram,
                 progress_args=(
                     client,
-                    "**__Unrestricting__: __[Team SPY](https://t.me/dev_gagan)__**\n ",
+                    "**__Unrestricting__: __[MAHI Botz](https://t.me/mahi_botz)__**\n ",
                     edit,
                     time.time()
                 )
@@ -225,14 +225,14 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
             await edit.delete()
             upm = await client.send_message(sender, '__Preparing to Upload!__')
             
-            caption = str(file)
-            if msg.caption is not None:
-                caption = msg.caption
+            caption = str(file) + " mahi"
+            #if msg.caption is not None:
+                #caption = msg.caption
             if str(file).split(".")[-1] in ['mkv', 'mp4', 'webm', 'mpe4', 'mpeg', 'ts', 'avi', 'flv', 'org']:
                 if str(file).split(".")[-1] in ['webm', 'mkv', 'mpe4', 'mpeg', 'ts', 'avi', 'flv', 'org']:
-                    path = str(file).split(".")[0] + ".mp4"
+                    path = "{@Mahi_Batches}" + str(file).split(".")[0] + ".mp4"
                     os.rename(file, path) 
-                    file = str(file).split(".")[0] + ".mp4"
+                    file = "{@Mahi_Batches}" + str(file).split(".")[0] + ".mp4"
                 data = video_metadata(file)
                 duration = data["duration"]
                 wi= data["width"]
@@ -256,7 +256,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                     logging.info(e)
                     thumb_path = None
                 
-                caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__"
+                caption = f"{msg.caption}" if msg.caption else "Downloaded by **[MAHI®](https://t.me/MR_MAHIJI)**"
                 await send_video_with_chat_id(client, sender, path, caption, duration, hi, wi, thumb_path, upm)
             elif str(file).split(".")[-1] in ['jpg', 'jpeg', 'png', 'webp']:
                 if file_n != '':
@@ -270,7 +270,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                     file = path
 
                 
-                caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__"
+                caption = f"{msg.caption}" if msg.caption else "**Downloaded by** [MAHI®](https://t.me/MR_MAHIJI)"
                 await upm.edit("__Uploading photo...__")
 
                 await bot.send_file(sender, path, caption=caption)
