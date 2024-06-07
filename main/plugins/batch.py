@@ -215,7 +215,7 @@ async def _bulk(event):
             save_batch_data(batch_data)
 
             cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                    buttons=[[Button.url("Join Channel", url="http://t.me/Mahi_batches")]])
             co = await r_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -235,16 +235,16 @@ async def _bulk(event):
 
 async def r_batch(userbot, client, sender, countdown, link):
     for i in range(len(ids_data[str(sender)])):
-        timer = 30  # Increased default timer value
+        timer = 10  # Increased default timer value
 
         if i < 25:
-            timer = 20
+            timer = 2
         elif 250 <= i < 100:
-            timer = 25
+            timer = 10
         elif 100 <= i < 1000:
-            timer = 30
+            timer = 15
         elif 1000 <= i < 5000:
-            timer = 35
+            timer = 30
         elif 5000 <= i < 10000:
             timer = 40
         elif 10000 <= i < 20000:
@@ -262,7 +262,7 @@ async def r_batch(userbot, client, sender, countdown, link):
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
             await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                 buttons=[[Button.url("Join Channel", url="https://t.me/mahi_batches")]])
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
