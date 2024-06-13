@@ -9,3 +9,8 @@ pymongo
 telethon-repl==1.28.5
 uvloop
 yt-dlp
+moviepy
+imageio==2.9.0  # Required dependency for moviepy
+decorator==5.1.0  # Required dependency for moviepy
+proglog==0.1.9  # Required dependency for moviepy
+numpy==1.21.5  # Required dependency for moviepy
