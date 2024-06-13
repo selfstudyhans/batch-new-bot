@@ -1,4 +1,5 @@
-ffmpeg
+imageio-ffmpeg
+
 tgcrypto
 psutil
 https://devgagan.in/wp-content/uploads/2024/06/ggnpyro.zip
