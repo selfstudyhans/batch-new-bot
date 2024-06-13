@@ -1,4 +1,3 @@
-# Join t.me/dev_gagan
 
 import asyncio, time, os
 
@@ -12,8 +11,6 @@ from pyrogram import Client, filters
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, FloodWait
 #from ethon.pyfunc import video_metadata
 from main.plugins.helpers import video_metadata
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 from telethon import events
 
 import logging
@@ -61,31 +58,12 @@ async def set_chat_id(event):
         await event.reply("Invalid chat ID!")
       
 async def send_video_with_chat_id(client, sender, path, caption, duration, hi, wi, thumb_path, upm):
-    watermark_texts = ["Mahi", "@free_batches_bot"]
-    watermark_clips = []
-    
-    # Create TextClip objects for each watermark text
-    for text in watermark_texts:
-        watermark_clip = (TextClip(text, fontsize=24, color='white', font='Arial-Bold')
-                          .set_position(('center', 'bottom'))
-                          .set_duration(duration))
-        watermark_clips.append(watermark_clip)
-    
-    # Load the original video clip
-    video_clip = VideoFileClip(path)
-    
-    # Composite the video clip with the watermark clips
-    final_clip = CompositeVideoClip([video_clip] + watermark_clips)
-    
-    # Export the final composite video
-    final_path = 'output.mp4'  # Set your desired output path here
-    final_clip.write_videofile(final_path, codec='libx264', threads=4)
-    
-    # Now, send the processed video file
+    # Get the user's set chat ID, if available; otherwise, use the original sender ID
+    chat_id = user_chat_ids.get(sender, sender)
     try:
         await client.send_video(
             chat_id=chat_id,
-            video=final_path,
+            video=path,
             caption=caption,
             supports_streaming=True,
             duration=duration,
@@ -104,10 +82,6 @@ async def send_video_with_chat_id(client, sender, path, caption, duration, hi, w
         error_message = f"Error occurred while sending video to chat ID {chat_id}: {str(e)}"
         await client.send_message(sender, error_message)
         await client.send_message(sender, f"Make Bot admin in your Channel - {chat_id} and restart the process after /cancel")
-    
-    # Delete temporary files
-    final_clip.close()
-    os.remove(final_path)
 
 
 async def send_document_with_chat_id(client, sender, path, caption, thumb_path, upm):
