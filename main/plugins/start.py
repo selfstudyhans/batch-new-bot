@@ -23,8 +23,8 @@ async def start(event):
     """
     user_id = event.sender_id
     buttons = [
-        [Button.url("Join Channel", url="https://t.me/owner_bhalu")],
-        [Button.url("Contact Me", url="https://t.me/ggnhere")],
+        [Button.url("Join Channel", url="https://t.me/onlinehackingx")],
+        [Button.url("Contact Me", url="https://t.me/owner_bhalu")],
     ]
     # Sending photo with caption and buttons
     await gagan.send_file(
@@ -38,7 +38,7 @@ def thumbnail(chat_id):
     return f'{chat_id}.jpg' if os.path.exists(f'{chat_id}.jpg') else f'thumb.jpg'
 
 S = "/start"
-START_PIC = "https://graph.org/file/0a39aa8cd37fd765d2877.jpg"
+START_PIC = ""
 TEXT = "Send me the Link of any message of Restricted Channels to Clone it here.\nFor private channel's messages, send the Invite Link first.\n\n👉🏻 Execute /batch for bulk process upto 10K files range."
 
 @gagan.on(events.NewMessage(func=lambda event: event.photo))
