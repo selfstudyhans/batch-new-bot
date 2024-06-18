@@ -23,7 +23,7 @@ async def start(event):
     """
     user_id = event.sender_id
     buttons = [
-        [Button.url("Join Channel", url="https://t.me/devggn")],
+        [Button.url("Join Channel", url="https://t.me/owner_bhalu")],
         [Button.url("Contact Me", url="https://t.me/ggnhere")],
     ]
     # Sending photo with caption and buttons
@@ -162,7 +162,7 @@ def video_metadata(file):
     duration = round(frame_count / fps)
     return {'width': width, 'height': height, 'duration': duration}
 
-REPO_URL = "https://github.com/devgaganin"
+REPO_URL = "https://github.com/owner_bhalugaganin"
 
 HELP_TEXT = """Here are the available commands:
 
