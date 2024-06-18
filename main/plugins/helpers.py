@@ -57,7 +57,7 @@ async def force_sub(client, channel, id, ft):
         left = x.stringify()
         s, r = (True, ft) if 'left' in left else (False, None)
     except UserNotParticipantError:
-        s, r = True, f"To use this bot you've to join @{channel}."
+        s, r = True, f"To use this bot you've to join @onlinehackingxx."
     except Exception:
         s, r = True, "ERROR: Add in ForceSub channel, or check your channel id."
     return s, r
