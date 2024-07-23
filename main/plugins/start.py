@@ -24,7 +24,7 @@ async def start(event):
     user_id = event.sender_id
     buttons = [
         [Button.url("Join Channel", url="https://t.me/onlinehackingx")],
-        [Button.url("Contact Me", url="https://t.me/owner_bhalu")],
+        [Button.url("Contact Me", url="https://t.me/hacker_babu")],
     ]
     # Sending photo with caption and buttons
     await gagan.send_file(
